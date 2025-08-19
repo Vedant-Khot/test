@@ -1,0 +1,67 @@
+/*
+=================================================================
+  ISKCON Website Theme - V7 (Warm & Grounded)
+=================================================================
+  This version adopts the warm, earthy color palette inspired
+  by the Vihara reference website.
+=================================================================
+*/
+
+/* --- 1. Root Variables: The NEW "Vihara" Inspired Palette --- */
+:root {
+  /* A. NEW "Warm & Grounded" Color Palette */
+  --color-primary: #d9832e;          /* Warm Terracotta/Orange (from Vihara) */
+  --color-primary-dark: #b86e26;       /* Darker version for hover */
+  --color-accent: #d9832e;           /* Accent is the same as primary in this theme */
+  --color-bg: #f9f5f0;                 /* Warm, Sandy Beige background */
+  --color-bg-alt: #ffffff;           /* Pure white for cards to make them pop */
+  --color-text-heading: #2a2a2a;      /* Soft, very dark charcoal for headings */
+  --color-text-body: #606060;         /* Readable, medium gray for body text */
+  --color-border: #e8e1d9;             /* Soft border color to match the theme */
+
+  /* B. Typography & Sizing (These remain the same - they are still excellent) */
+  --font-family-serif: 'Playfair Display', 'Georgia', serif;
+  --font-family-sans: 'Poppins', 'Inter', sans-serif;
+  --line-height: 1.75;
+  --border-radius: 8px;
+  --shadow-card: 0 5px 15px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 10px 30px rgba(42, 42, 42, 0.1); /* Use charcoal for shadow color */
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  /* --transition: all 0.3s ease; */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --border-radius: 10px;
+  --color-border: #eee;
+  --color-bg: #f9f9f9;
+  --color-accent: #d4af37;
+}
+
+/*
+  ==============================================================
+  >>> NO OTHER CHANGES ARE NEEDED BELOW THIS LINE IN THIS FILE <<<
+  The rest of the file uses the variables defined above.
+  ==============================================================
+*/
+
+/* --- 2. Global Styles & Typographic Scale --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 100%; scroll-behavior: smooth; }
+body {
+  font-family: var(--font-family-sans);
+  line-height: var(--line-height);
+  color: var(--color-text-body);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-family-serif);
+  color: var(--color-text-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+h1 { font-size: 4rem; }
+h2 { font-size: 3rem; }
+h3 { font-size: 1.75rem; }
+p { margin-bottom: 1rem; max-width: 65ch; }
+
+/* ... etc ... all other styles remain untouched ... */

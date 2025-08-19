@@ -1,0 +1,256 @@
+/*
+=================================================================
+  ISKCON Website - Header Styles
+=================================================================
+  This file contains all styles related to the main site header
+  and navigation bar, ensuring it is modular and easy to manage.
+=================================================================
+*/
+
+.main-header {
+  background-color: rgba(253, 253, 245, 0.85); /* Use our --color-bg with opacity */
+  backdrop-filter: blur(12px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(12px); /* For Safari */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  border-bottom: 1px solid var(--color-border);
+  padding: 1.25rem 0;
+  transition: all 0.3s ease;
+}
+
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+}
+
+/* --- Logo Section --- */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.navbar-brand .logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  font-family: sans-serif; /* Use a generic font for the symbol for best compatibility */
+  flex-shrink: 0;
+}
+
+.navbar-brand .logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-brand .logo-text .title {
+  font-family: var(--font-family-serif);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--color-text-heading);
+  line-height: 1;
+}
+
+.navbar-brand .logo-text .subtitle {
+  font-size: 0.8rem;
+  color: var(--color-text-body);
+  font-family: var(--font-family-sans);
+}
+
+
+/* --- Navigation Links --- */
+.navbar-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  margin: 0;
+}
+
+.navbar-nav a {
+  font-family: var(--font-family-sans);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text-body);
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+  color: var(--color-primary);
+}
+
+/* Elegant underline effect for nav links */
+.navbar-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.navbar-nav a:hover::after {
+  width: 100%;
+}
+
+/* --- Header CTA Button --- */
+.header-cta-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  border: 2px solid var(--color-primary);
+}
+
+.header-cta-btn:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+.header-cta-btn .lucide {
+  width: 16px;
+  height: 16px;
+}
+
+#header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  max-height: fit-content;
+}
+/*
+=================================================================
+  Component: Navigation Link (.nav-link)
+=================================================================
+  - Location: assets/css/style.css
+  - Description: Styles for the main navigation links in the header.
+    Features a subtle color change and an elegant underline animation
+    on hover, inspired by the 'Great Lotus' reference.
+=================================================================
+*/
+
+.nav-link {
+  /* --- 1. Typography & Spacing --- */
+  font-family: var(--font-family-sans);
+  font-weight: 700; /* Bold from Poppins for clarity */
+  color: var(--color-text-body);
+  text-decoration: none;
+  padding: 0.5rem 0; /* Vertical padding for click area */
+
+  /* --- 2. Underline Animation Setup --- */
+  position: relative; /* Required for the ::after pseudo-element */
+  transition: color 0.4s ease; /* Smooth color transition */
+}
+
+/* The animated underline, initially hidden */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; /* Position the line at the very bottom */
+  left: 0;
+  
+  /* Initial state: zero width */
+  width: 0;
+  height: 2px;
+  
+  /* The elegant gold accent color */
+  background-color: var(--color-accent);
+  
+  /* Smooth transition for the width property */
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- 3. Hover State --- */
+.nav-link:hover {
+  /* On hover, change the text color to the primary deep green/teal */
+  color: var(--color-primary);
+}
+
+/* On hover, make the underline grow to 100% width */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/*
+=================================================================
+  Component: Buttons (.btn, .btn-primary, .btn-secondary)
+=================================================================
+  - Location: assets/css/theme.css
+  - Description: Defines the core button styles for the website.
+    - .btn:       Base styles for all buttons (spacing, font, transitions).
+    - .btn-primary: The main call-to-action button (solid fill).
+    - .btn-secondary: The secondary action button (outline style).
+=================================================================
+*/
+
+/* --- 1. Base Button Style --- */
+/* This class should be applied to ALL buttons. */
+.btn {
+  /* Box Model & Sizing */
+  display: inline-block; /* Allows padding and margin */
+  padding: 0.75rem 2rem; /* Generous padding for a premium feel */
+  border: 2px solid transparent; /* Prevents "jumps" on hover for secondary btn */
+  
+  /* Typography */
+  font-family: var(--font-family-sans);
+  font-weight: 700; /* Bold and clear */
+  font-size: 0.95rem;
+  text-align: center;
+  text-decoration: none;
+  
+  /* Appearance & Interaction */
+  cursor: pointer;
+  border-radius: 9999px; /* Modern pill shape */
+  transition: var(--transition); /* Smooth transitions for all properties */
+}
+
+
+/* --- 2. Primary Button --- */
+/* The main "solid" button for important actions like 'Register'. */
+.btn-primary {
+  background-color: var(--color-primary); /* Deep green/teal */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark); /* Darkens on hover */
+  box-shadow: var(--shadow-card-hover); /* Satisfying shadow lift */
+  transform: translateY(-3px); /* Lifts the button up */
+}
+
+
+/* --- 3. Secondary Button --- */
+/* The "outline" button for less important actions like 'Login'. */
+.btn-secondary {
+  background-color: transparent;
+  border-color: var(--color-border); /* Subtle, soft border */
+  color: var(--color-text-heading); /* Dark text for readability */
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary); /* Fills with the primary color */
+  border-color: var(--color-primary); /* Border color matches the new fill */
+  color: white; /* Text becomes white to contrast with the new background */
+}
