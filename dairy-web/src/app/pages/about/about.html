@@ -1,0 +1,311 @@
+
+<div class="about-us-container">
+    <!-- Navigation -->
+    <!-- <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Your Company Name {{activeTab}}</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#about" class="active">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+        <div class="container">
+            <div class="tab-buttons">
+                <button class="tab-btn" [ngClass]="{'active': activeTab === 'story'}" (click)="switchTab('story')">
+                    <span class="tab-icon">📖</span>Our Story
+                </button>
+
+                <button class="tab-btn" [ngClass]="{'active': activeTab === 'team'}" (click)="switchTab('team')">
+                    <span class="tab-icon">👥</span>Our Team
+                </button>
+
+                <button class="tab-btn" [ngClass]="{'active': activeTab === 'careers'}" (click)="switchTab('careers')">
+                    <span class="tab-icon">🚀</span>Careers
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- // Tab Content add a if condition to check if the story tab is active  -->
+    <!-- Our Story Tab -->
+    <div id="story" class="tab-content active" *ngIf="activeTab === 'story'">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>From a Simple Idea to an Industry Standard</h1>
+                <p>For over two decades, we have been dedicated to one mission: building robust, reliable software that
+                    solves the real-world operational challenges of India's core industries. Our journey is one of
+                    partnership, innovation, and an unwavering commitment to our clients' success.</p>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="section">
+            <div class="container">
+                <h2>A Journey of Partnership Since 1998</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">1998: The Beginning</div>
+                            <p>Founded by [Founder's Name], [Your Company Name] was born from a direct request from a
+                                local dairy owner struggling with manual bookkeeping. Our first software was built
+                                on-site, solving a real problem.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">Early 2000s: Entering the Sugar Sector</div>
+                            <p>Recognizing similar challenges in another core industry, we adapted our expertise to
+                                develop our first ERP solution for a sugar factory, focusing on the complexities of cane
+                                management.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">Mid 2000s: Building the Team</div>
+                            <p>Our team grew, bringing in new developers and support staff who shared our passion for
+                                client-focused problem-solving.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2010s: Embracing New Technology</div>
+                            <p>We migrated our platforms to more modern, robust technologies (like .NET and SQL),
+                                ensuring our clients' systems were secure, scalable, and future-proof.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">Late 2010s: The Gold Standard</div>
+                            <p>We launched our specialized solution for the gold and jewelry industry, addressing the
+                                unique needs for high-security inventory and artisan management.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">Today: A Trusted Partner</div>
+                            <p>With a portfolio of over [Number] clients across three key industries, we continue to
+                                innovate, driven by the same principle we started with in 1998: your success is our
+                                success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="section">
+            <div class="container">
+                <h2>The Values That Drive Us</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Client Partnership</h3>
+                        <p>We are more than a vendor; we are a long-term partner. We succeed only when you do.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">⚙️</div>
+                        <h3>Pragmatic Innovation</h3>
+                        <p>We don't chase trends. We adopt and build technology that delivers real, measurable results
+                            for your operations.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🛡️</div>
+                        <h3>Unwavering Integrity</h3>
+                        <p>From our code to our contracts, we operate with complete transparency and honesty. Your trust
+                            is our most valuable asset.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🔍</div>
+                        <h3>Deep Domain Expertise</h3>
+                        <p>We believe you can't build the best solution without understanding the business inside and
+                            out. We are industry experts first, technologists second.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Our Team Tab -->
+    <div id="team" class="tab-content active" *ngIf="activeTab == 'team'">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>The Experts Behind Your Solution</h1>
+                <p>Meet the dedicated professionals who bring decades of industry experience and technical expertise to
+                    every project.</p>
+            </div>
+        </section>
+
+        <!-- Leadership Section -->
+        <section class="section">
+            <div class="container">
+                <h2>Our Leadership</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">👨‍💼</div>
+                        <div class="member-name">[Founder's Name]</div>
+                        <div class="member-title">Founder & CEO</div>
+                        <p>Visionary leader who founded the company in 1998 with a mission to solve real-world
+                            operational challenges through innovative software solutions.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">👩‍💻</div>
+                        <div class="member-name">[Name]</div>
+                        <div class="member-title">Head of Development</div>
+                        <p>With 15 years in enterprise software, [Name] ensures that every line of code we ship is
+                            secure, scalable, and reliable.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">👨‍🔧</div>
+                        <div class="member-name">[Name]</div>
+                        <div class="member-title">Head of Support</div>
+                        <p>Leading our client success initiatives, ensuring every customer receives the support they
+                            need to maximize their software investment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Members Section -->
+        <section class="section">
+            <div class="container">
+                <h2>Meet a Few of Our Team Members</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">👩‍💻</div>
+                        <div class="member-name">Priya</div>
+                        <div class="member-title">Senior .NET Developer</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">👨‍💼</div>
+                        <div class="member-name">Rohan</div>
+                        <div class="member-title">Dairy Solutions Specialist</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">👩‍🔬</div>
+                        <div class="member-name">Anjali</div>
+                        <div class="member-title">Business Analyst</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">👨‍💻</div>
+                        <div class="member-name">Vikram</div>
+                        <div class="member-title">Sugar Industry Expert</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Careers Tab -->
+    <div id="careers" class="tab-content active" *ngIf="activeTab == 'careers'">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Build the Future of Industry Software With Us</h1>
+                <p>Join our team of problem-solvers, thinkers, and innovators who are passionate about our clients'
+                    success.</p>
+            </div>
+        </section>
+
+        <!-- Life at Company Section -->
+        <section class="section">
+            <div class="container">
+                <h2>More Than a Job, It's a Partnership</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">We're a team of
+                    problem-solvers, thinkers, and innovators who are passionate about our clients' success. We believe
+                    in a culture of collaboration, continuous learning, and mutual respect. Here, your work has a direct
+                    impact on major industries.</p>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section">
+            <div class="container">
+                <h2>Perks & Benefits</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💰</div>
+                        <h3>Competitive Salary</h3>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🏥</div>
+                        <h3>Health Insurance</h3>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🏖️</div>
+                        <h3>Paid Time Off</h3>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📚</div>
+                        <h3>Professional Development</h3>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎉</div>
+                        <h3>Team Outings & Events</h3>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🤝</div>
+                        <h3>Collaborative Environment</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Job Openings Section -->
+        <section class="section">
+            <div class="container">
+                <h2>Current Openings</h2>
+                <div class="job-listings">
+                    <div class="job-item">
+                        <div class="job-title">Senior C# Developer</div>
+                        <div class="job-details">
+                            <span>📍 Kolhapur, India</span>
+                            <span>⏰ Full-time</span>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="job-title">Business Analyst - Dairy Industry</div>
+                        <div class="job-details">
+                            <span>📍 Kolhapur, India</span>
+                            <span>⏰ Full-time</span>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="job-title">Software Support Specialist</div>
+                        <div class="job-details">
+                            <span>📍 Kolhapur, India</span>
+                            <span>⏰ Full-time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    style="background: var(--ice-blue); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 2rem;">
+                    <h3 style="color: var(--midnight-blue); margin-bottom: 1rem;">Don't see a fit?</h3>
+                    <p>We are always looking for talented individuals. If you believe you'd be a great fit for our team,
+                        send your resume to careers&#64;yourcompany.com</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Partner With Us?</h2>
+            <p>Let's discuss how our 25+ years of experience can help transform your business operations.</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+</div>

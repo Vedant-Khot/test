@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Your Company Name</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+</head>
+<body ng-app="contactApp" ng-controller="ContactController">
+    <!-- Header Section -->
+    <section class="header-section">
+        <div class="container">
+            <h1>Let's Talk</h1>
+            <p>Whether you have a question about our software, need to speak with our support team, or want to schedule a demo, we are here to help. Please use the information below to connect with us.</p>
+            <div class="quick-links">
+                <a href="#contact-form" class="btn btn-primary" ng-click="scrollToForm()">Request a Sales Demo</a>
+                <a href="#contact-info" class="btn btn-outline">Get Technical Support</a>
+                <a href="#contact-form" class="btn btn-outline" ng-click="scrollToForm()">General Inquiries</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="contact-section" id="contact-form">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2 class="section-title">Send Us a Message</h2>
+                    <p class="section-subtitle">Please fill out the form below, and a member of our team will get back to you within one business day.</p>
+                    
+                    <div ng-show="formSubmitted" class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        Thank you! Your message has been sent. We will be in touch shortly.
+                    </div>
+
+                    <form ng-show="!formSubmitted" name="contactForm" ng-submit="submitForm()" novalidate>
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" class="form-control" 
+                                   ng-model="formData.fullName" required>
+                            <div ng-show="contactForm.fullName.$invalid && contactForm.fullName.$touched" class="error-message">
+                                Full name is required.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" class="form-control" 
+                                   ng-model="formData.company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Work Email *</label>
+                            <input type="email" id="email" name="email" class="form-control" 
+                                   ng-model="formData.email" required>
+                            <div ng-show="contactForm.email.$invalid && contactForm.email.$touched" class="error-message">
+                                Please enter a valid email address.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" 
+                                   ng-model="formData.phone" required>
+                            <div ng-show="contactForm.phone.$invalid && contactForm.phone.$touched" class="error-message">
+                                Phone number is required.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interest">I am interested in... *</label>
+                            <select id="interest" name="interest" class="form-control" 
+                                    ng-model="formData.interest" required>
+                                <option value="">Please select...</option>
+                                <option value="demo">Scheduling a Demo</option>
+                                <option value="dairy">Dairy Solutions</option>
+                                <option value="sugar">Sugar Factory Solutions</option>
+                                <option value="gold">Gold Industry Solutions</option>
+                                <option value="support">Technical Support</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                            <div ng-show="contactForm.interest.$invalid && contactForm.interest.$touched" class="error-message">
+                                Please select your area of interest.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" 
+                                      ng-model="formData.message" required></textarea>
+                            <div ng-show="contactForm.message.$invalid && contactForm.message.$touched" class="error-message">
+                                Please enter your message.
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-submit" ng-disabled="contactForm.$invalid || isSubmitting">
+                            <span ng-show="!isSubmitting">Send Message</span>
+                            <span ng-show="isSubmitting">Sending...</span>
+                        </button>
+
+                        <p class="privacy-notice">
+                            We respect your privacy. The information you provide will only be used to respond to your inquiry. 
+                            <a href="#privacy">Privacy Policy</a>
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div id="contact-info">
+                    <h2 class="section-title">Reach Us Directly</h2>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>For Sales Inquiries:</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Us:</h4>
+                            <p>sales&#64;yourcompany.com</p>
+                            <p>support&#64;yourcompany.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Our Office Address:</h4>
+                            <p>123 Business Street, Suite 100</p>
+                            <p>City, State 12345</p>
+                            <p>United States</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Business Hours:</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p>Saturday, Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt" style="margin-right: 10px;"></i>
+                    Interactive Google Maps Integration Here
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">Frequently Asked Questions</h2>
+            
+            <div class="faq-item" ng-repeat="faq in faqs">
+                <div class="faq-question" ng-click="toggleFaq($index)">
+                    <!-- <span>{{faq.question}}</span> -->
+                    <i class="fas fa-chevron-down faq-toggle" ng-class="{active: faq.isOpen}"></i>
+                </div>
+                <div class="faq-answer" ng-class="{active: faq.isOpen}">
+                    <!-- <p>{{faq.answer}}</p> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        angular.module('contactApp', [])
+        .controller('ContactController', function($scope, $timeout) {
+            $scope.formData = {};
+            $scope.formSubmitted = false;
+            $scope.isSubmitting = false;
+
+            $scope.faqs = [
+                {
+                    question: "How do I schedule a demo?",
+                    answer: "You can schedule a demo by filling out the form on this page and selecting 'Scheduling a Demo,' or by clicking the 'Schedule a Demo' button in our website's header.",
+                    isOpen: false
+                },
+                {
+                    question: "Do you offer on-site implementation?",
+                    answer: "Yes, we offer complete on-site implementation and training to ensure your team is fully equipped to use our software effectively.",
+                    isOpen: false
+                },
+                {
+                    question: "What kind of support do you offer after purchase?",
+                    answer: "We offer comprehensive support packages, including phone, email, and remote assistance. Our support team is comprised of industry specialists who understand your business.",
+                    isOpen: false
+                }
+            ];
+
+            $scope.submitForm = function() {
+                if ($scope.contactForm.$valid) {
+                    $scope.isSubmitting = true;
+                    
+                    // Simulate form submission
+                    $timeout(function() {
+                        $scope.isSubmitting = false;
+                        $scope.formSubmitted = true;
+                        console.log('Form submitted:', $scope.formData);
+                    }, 2000);
+                }
+            };
+
+            $scope.toggleFaq = function(index) {
+                $scope.faqs[index].isOpen = !$scope.faqs[index].isOpen;
+            };
+
+            $scope.scrollToForm = function() {
+                document.getElementById('contact-form').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            };
+        });
+    </script>
+</body>
+</html>

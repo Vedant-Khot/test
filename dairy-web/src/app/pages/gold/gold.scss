@@ -1,0 +1,591 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2c2c2c;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Gold Luxury Theme */
+.gold-lux {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%);
+    position: relative;
+}
+
+.gold-lux::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+h2.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #fff;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+h2.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #FFD700;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.sub-headline {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: #e0e0e0;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.6;
+}
+
+/* Buttons */
+.cta-primary, .cta-secondary {
+    display: inline-block;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-primary {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #1a1a1a;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+}
+
+.cta-secondary {
+    background: transparent;
+    color: #FFD700;
+    border: 2px solid #FFD700;
+}
+
+.cta-secondary:hover {
+    background: #FFD700;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+/* Shine Effect for Primary Button */
+.shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.shine:hover::before {
+    left: 100%;
+}
+
+/* Trust Bar */
+.trust-logos {
+    margin-top: 4rem;
+}
+
+.trusted-by {
+    color: #888;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.logo-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.client-logo {
+    height: 40px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    filter: grayscale(100%) brightness(1.5);
+}
+
+.client-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%) brightness(1);
+}
+
+/* Problems Section */
+.problems {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.problems h2 {
+    color: #2c2c2c;
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.problem-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid #FFD700;
+}
+
+.problem-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.problem-card .icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+}
+
+.problem-card i {
+    font-size: 2rem;
+    color: #1a1a1a;
+}
+
+.problem-card h3 {
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.problem-card p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Solution Section */
+.solution {
+    padding: 100px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+/* Case Study Section */
+.case-study {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+}
+
+.case-study-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial-block {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    margin-top: 3rem;
+}
+
+.testimonial-block .client-logo {
+    height: 60px;
+    margin-bottom: 2rem;
+}
+
+blockquote {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+cite {
+    display: block;
+    font-size: 1rem;
+    color: #FFD700;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.metric {
+    text-align: center;
+}
+
+.metric .number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #FFD700;
+    margin-bottom: 0.5rem;
+}
+
+.metric .label {
+    font-size: 0.9rem;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Why Choose Section */
+.why-choose {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.why-choose h2 {
+    color: #2c2c2c;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-card i {
+    font-size: 3rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+}
+
+.benefit-card h3 {
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.benefit-card p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Final CTA Section */
+.final-cta {
+    padding: 120px 0;
+    text-align: center;
+}
+
+.final-cta .sub-headline {
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero {
+        padding: 60px 0;
+        min-height: 90vh;
+    }
+    
+    .problem-grid,
+    .features-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    
+    .metric .number {
+        font-size: 2rem;
+    }
+    
+    .logo-grid {
+        gap: 1rem;
+    }
+    
+    .client-logo {
+        height: 30px;
+    }
+    
+    .problem-card,
+    .feature-card,
+    .benefit-card {
+        padding: 2rem;
+    }
+    
+    .testimonial-block {
+        padding: 2rem;
+    }
+    
+    blockquote {
+        font-size: 1.1rem;
+    }
+    
+    .cta-primary,
+    .cta-secondary {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2.section-title {
+        font-size: 1.8rem;
+    }
+    
+    .sub-headline {
+        font-size: 1rem;
+    }
+    
+    .problem-card,
+    .feature-card,
+    .benefit-card,
+    .testimonial-block {
+        padding: 1.5rem;
+    }
+}
+
+/* Additional Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus States for Accessibility */
+.cta-primary:focus,
+.cta-secondary:focus {
+    outline: 3px solid rgba(255, 215, 0, 0.5);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .gold-lux {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .cta-primary,
+    .cta-secondary {
+        background: white !important;
+        color: black !important;
+        border: 1px solid black !important;
+    }
+}
